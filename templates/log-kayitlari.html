@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+{% from "includes/formhelpers.html" import render_field %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <form method = 'post'>
+            <th scope="col">{{ render_field(form.basla,class = 'form-control') }}</th>
+            <th scope="col">{{ render_field(form.bitis,class = 'form-control') }}</th>
+            <th scope="col"><button class="btn btn-outline-secondary" type="submit">Kayit Ara</button></th>
+        </form> 
+      </tr>
+    </thead>
+</table>
+
+
+
+{% if loglar %}
+<br>
+
+{% for log in loglar %}
+<p>{{log[2]}}</p>
+<p>{{log[1] | safe}}</p>
+<br>
+<hr>
+{% endfor %}
+
+{% else %}
+<br>
+<div class='alert alert-danger'>Henuz kayit bulunmamaktadir.</div>
+{% endif %}
+
+{% endblock body %}

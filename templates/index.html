@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+{% if urunler %}
+
+<br>
+<h3>Sizde olan urunler</h3>
+<br>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Urun Adi</th>
+        <th scope="col">Urun Ozellikleri</th>
+
+        {% if session['isAdmin'] == 'True' %}
+        <th scope="col">Ekleyen</th>
+        <th scope="col">Duzenle</th>
+        {% else %}
+        {% endif %}
+
+      </tr>
+    </thead>
+
+    <tbody>
+
+        {% for urun in urunler %}
+        <tr>
+            <th scope="row">{{urun[0]}}</th>
+            <td><a href="/urun/{{urun[0]}}">{{urun[1]}}</a></td>
+            <td>{{urun[2] | safe | truncate(35, True, '...', 0) }}</td>
+
+            {% if session['isAdmin'] == 'True' %}
+            <td><a href='/ekleyen/{{urun[3]}}'>{{urun[3]}}</a></td>
+            <td><a href='/urun/duzenle/{{urun[0]}}' class='btn btn-secondary'>Duzenle</td>
+
+            {% else %}
+            {% endif %}
+
+          </tr>
+    
+        {% endfor %}
+</table>
+
+{% else %}
+<div class='alert alert-warning'>Henuz urun Kullanmiyorsunuz.</div>
+
+{% endif %}
+
+{% endblock body %}

@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+{% from "includes/formhelpers.html" import render_field %}
+
+<form method='post'>
+    {{ render_field(form.ad,class = 'form-control') }}
+    {{ render_field(form.ozellik,class = 'form-control') }}
+    {{ render_field(form.kullanan,class = 'form-control') }}
+    <button class="btn btn-primary" type="submit">Urunu Duzenle</button>
+</form>
+
+<br>
+<a href='/urun/sil/{{urun[0]}}' class="btn btn-danger">Urunu Sil</a>
+
+
+{% endblock body %}

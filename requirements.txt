@@ -1,0 +1,4 @@
+flask
+wtforms
+passlib
+email_validator

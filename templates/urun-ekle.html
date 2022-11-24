@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+{% from "includes/formhelpers.html" import render_field %}
+
+<h3>Urun Ekleme Sistemi</h3>
+<br>
+
+<form method='post'>
+    {{ render_field(form.ad,class = 'form-control') }}
+    {{ render_field(form.ozellik,class = 'form-control') | safe }}
+    {{ render_field(form.kullanan,class = 'form-control') }}
+    <button class="btn btn-primary" type="submit">Urun Ekle</button>
+</form>
+
+{% endblock body %}

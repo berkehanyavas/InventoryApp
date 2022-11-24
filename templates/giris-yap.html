@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+{% from "includes/formhelpers.html" import render_field %}
+
+<h3>Giris Yap</h3>
+<br>
+
+<form method = 'post'>
+    {{ render_field(form.mail,class = 'form-control') }}
+    {{ render_field(form.sifre,class = 'form-control')}}
+    <button class="btn btn-primary" type="submit">Giris Yap</button>
+</form>
+
+<br><br>
+<a class="btn btn-secondary" href="/sifremi-unuttum" role="button">Sifremi Unuttum</a>
+
+<a class="btn btn-outline-primary" href="/kayit-ol" role="button">Kayit Ol</a>
+
+{% endblock body %}

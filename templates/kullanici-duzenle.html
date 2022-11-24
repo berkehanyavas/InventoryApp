@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+{% from "includes/formhelpers.html" import render_field %}
+
+<h3>Kullanici Duzenle</h3>
+<br>
+
+<form method='post'>
+    {{ render_field(form.ad,class = 'form-control') }}
+    {{ render_field(form.mail,class = 'form-control')}}
+    {{ render_field(form.isAdmin,class = 'form-check-label') }}
+    {{ render_field(form.isVerified,class = 'form-check-label') }}
+    <button class="btn btn-primary" type="submit">Duzenle</button>
+</form>
+
+
+{% endblock body %}

@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+
+<br>
+<h3>{{ad}} adli kullanicinin kullanigi urunler</h3>
+<br>
+{% if urunler %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Urun Adi</th>
+        <th scope="col">Urun Ozellikleri</th>
+
+        {% if session['isAdmin'] == 'True' %}
+        <th scope="col">Ekleyen</th>
+        <th scope="col">Duzenle</th>
+        {% else %}
+        {% endif %}
+
+      </tr>
+    </thead>
+    <tbody>
+
+        {% for urun in urunler %}
+        
+        <tr>
+            <th scope="row">{{urun[0]}}</th>
+            <td><a href="/urun/{{urun[0]}}">{{urun[1]}}</a></td>
+            <td>{{urun[2] | safe | truncate(25, True, '...', 0) }}</td>
+
+            {% if session['isAdmin'] == 'True' %}
+                <td><a href='/ekleyen/{{urun[4]}}'>{{urun[4]}}</a></td>
+                <td><a href='/urun/duzenle/{{urun[0]}}' class='btn btn-secondary'>Duzenle</td>
+
+            {% else %}
+            {% endif %}
+
+          </tr>
+    
+        {% endfor %}
+
+
+{% else %}
+<div class='alert alert-danger'>{{ad}} adli kullanici herhangi bir urun kullanmiyor.</div>
+{% endif %}
+        
+
+
+{% endblock body %}

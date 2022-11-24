@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<h3>Tum Kullanicilar</h3>
+<br>
+
+{% if users %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Kullanicinin Adi</th>
+        <th scope="col">Mail Adresi</th>
+        <th scope="col">Admin Yetkisi</th>
+        <th scope="col">Duzenle</th>
+
+      </tr>
+    </thead>
+    <tbody>
+
+        {% for user in users %}
+        <tr>
+            <th scope="row">{{user[0]}}</th>
+            <td><a href="/user/{{user[1]}}">{{user[1]}}</a></td>
+            
+            <td>{{user[2] | safe | truncate(25, True, '...', 0) }}</td>
+
+            <td>{{user[4]}}</td>
+            <td><a href='/user/duzenle/{{user[1]}}' class='btn btn-secondary'>Duzenle</a></td>
+
+          </tr>
+    
+        {% endfor %}
+  </table>
+{% else %}
+<div class='alert alert-danger'>Kayitli Kullanici Yok.</div>
+{% endif %}
+
+
+{% endblock body %}

@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<h3>Urun ozellikleri</h3>
+<br>
+{% if urun  %}
+
+<h4>{{urun[1]}}</h4>
+<p>{{urun[2] | safe}}</p>
+<br>
+<p>Kullanan: <a href='/user/{{urun[3]}}'>{{urun[3]}}</a></p>
+
+{% if session['isAdmin'] == 'True' %}
+
+<p>Ekleyen: <a href='/ekleyen/{{urun[4]}}'>{{urun[4]}}</a></p>
+
+<a class = 'btn btn-secondary' href="/urun/duzenle/{{urun[0]}}">Duzenle</a>
+
+<hr>
+
+{% else %}
+{% endif %}
+
+{% else %}
+<div class='alert alert-danger'>
+    Boyle bir urun bulunmuyor.
+</div>
+{% endif %}
+
+{% endblock body %}
