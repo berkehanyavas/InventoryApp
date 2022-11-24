@@ -16,8 +16,8 @@ def dogrulama(verifycode,usermail,ad):
         '''
         content = f'{subject} {body}'
         
-        myMail = 'berkeyavas.9999@gmail.com'
-        pw = 'dagugwfiqofmawew'
+        myMail = 'E-Mail Adresiniz'
+        pw = 'E-Mail Uygulama Sifreniz'
         
         sendTo = usermail
         
@@ -45,8 +45,8 @@ berkehanyavas.pythonanywhere.com/sifre-sifirla/{resetpw}
         '''
         content = f'{subject} {body}'
         
-        myMail = 'berkeyavas.9999@gmail.com'
-        pw = 'dagugwfiqofmawew'
+        myMail = 'E-Mail Adresiniz'
+        pw = 'E-Mail Uygulama Sifreniz'
         
         sendTo = usermail
         
