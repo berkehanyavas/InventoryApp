@@ -1,2 +1,2 @@
 # InventoryApp
-Edit your e-mail and password in verification.py
+'verification.py' dosyasindaki kisimlara E-Mail adresinizi girip sistemi kullanabilirsiniz.
