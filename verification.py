@@ -4,7 +4,7 @@ import random
 def dogrulama(verifycode,usermail,ad):
     try:
         subject ='Nara Urun Takip Sistemi Mail Dogrulama'
-        link = f'berkehanyavas.pythonanywhere.com/dogrula/{verifycode}'
+        link = f'your.website.here/dogrula/{verifycode}'
         
         body = f'''
         
@@ -40,7 +40,7 @@ def sifreSifirlama(resetpw,usermail,ad):
 Sayin {ad}
 Asagidaki linke tiklayarak sifrenizi sifirlayabilirsiniz.
 
-berkehanyavas.pythonanywhere.com/sifre-sifirla/{resetpw}
+your.website.here/sifre-sifirla/{resetpw}
 
         '''
         content = f'{subject} {body}'
@@ -65,5 +65,5 @@ berkehanyavas.pythonanywhere.com/sifre-sifirla/{resetpw}
     
 if __name__ == '__main__':
     rnd = random.randint(100000000000000,999999999999999) #verify code
-    posta = 'berkehanyavas@gmail.com'
+    posta = 'your_gmail_here'
     dogrulama(rnd,posta)
